@@ -116,7 +116,7 @@ nav {
     border-radius: 50%; 
     object-fit: cover; 
     border: 4px solid #0b0f1a; 
-    object-position: center 20%; /* Ajusté pour bien cadrer le visage */
+    object-position: center 20%;
 }
 
 h1 { font-size: 3.5rem; line-height: 1.2; }
@@ -158,7 +158,7 @@ h1 span { color: var(--primary-blue); text-shadow: 0 0 15px rgba(0, 168, 255, 0.
 .container { 
     padding: 80px 8%; 
     width: 100%; 
-    clear: both; /* Empêche les décalages dus aux éléments flottants */
+    clear: both;
 }
 
 .glass-card { 
@@ -171,12 +171,12 @@ h1 span { color: var(--primary-blue); text-shadow: 0 0 15px rgba(0, 168, 255, 0.
 
 .section-title { margin-bottom: 40px; font-size: 2rem; }
 
-/* --- TIMELINE (MON PARCOURS) --- */
+/* --- TIMELINE --- */
 .timeline { 
     position: relative; 
     max-width: 800px; 
     margin: 0 auto; 
-    display: flow-root; /* Important pour que la ligne s'affiche sur PC */
+    display: flow-root;
 }
 
 .timeline::after { 
@@ -233,6 +233,7 @@ h1 span { color: var(--primary-blue); text-shadow: 0 0 15px rgba(0, 168, 255, 0.
     border-left: 5px solid transparent; 
     transition: 0.3s; 
 }
+
 .btn-verify {
     display: inline-flex;
     align-items: center;
@@ -307,11 +308,26 @@ h1 span { color: var(--primary-blue); text-shadow: 0 0 15px rgba(0, 168, 255, 0.
     gap: 20px; 
 }
 
+.skill-desc {
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
 .tech-icons { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px; font-size: 2.5rem; }
 
+/* Pas d'animation par défaut — uniquement au hover */
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.tech-icons i { animation: float 3s ease-in-out infinite; cursor: pointer; }
-.tech-icons i:nth-child(2n) { animation-delay: 0.5s; }
+
+.tech-icons i {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.tech-icons i:hover {
+    animation: float 0.6s ease-in-out infinite;
+}
 
 /* --- CONTACT --- */
 .contact-container { 
@@ -408,4 +424,13 @@ footer { padding: 40px 8%; text-align: center; }
 @media (max-width: 480px) {
     h1 { font-size: 1.8rem; }
     .nav-links a { margin: 5px; font-size: 0.75rem; }
+}
+
+
+/* Logos sombres — on les éclaircit */
+.devicon-github-original,
+.devicon-mysql-plain-wordmark,
+.devicon-matplotlib-plain,
+.devicon-pandas-plain-wordmark {
+    filter: brightness(0) invert(1);
 }
